@@ -1,0 +1,13 @@
+<a href="<%= routes.new_post_path %>">New Post</a>
+
+<% if posts.any? %>
+  <% posts.each do |post| %>
+    <article>
+      <h3><%= post.title %></h3>
+      <h5><%= post.author %></h5>
+      <p><%= post.content %></p>
+    </article>
+  <% end %>
+<% else %>
+  <h3>No posts exist yet :(</h3>
+<% end %>

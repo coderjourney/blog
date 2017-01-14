@@ -1,0 +1,10 @@
+<% unless params.valid? %>
+  <div class="errors">
+    <h3>Errors:</h3>
+    <ul>
+      <% params.error_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

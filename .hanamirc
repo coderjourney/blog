@@ -1,0 +1,4 @@
+project=blog
+architecture=container
+test=minitest
+template=erb

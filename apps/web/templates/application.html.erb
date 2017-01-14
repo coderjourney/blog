@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Web</title>
+    <%= favicon %>
+  </head>
+  <body>
+    <header>
+      <nav role="navigation">
+        <a href="<%= routes.root_path %>" class="logo">Simple Blog</a>
+      </nav>
+    </header>
+
+    <section>
+      <%= yield %>
+    </section>
+
+    <footer>
+    </footer>
+  </body>
+</html>
