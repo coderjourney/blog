@@ -1,0 +1,22 @@
+version: "2"
+
+volumes:
+  data:
+    external: false
+
+services:
+  db:
+    image: postgres:9.6.1
+    env_file: .env
+    volumes:
+      - data:/var/lib/postgresql/data
+
+  app:
+    build: .
+    env_file: .env
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "$PORT:$PORT"
+    depends_on:
+      - db
