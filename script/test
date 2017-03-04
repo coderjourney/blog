@@ -1,0 +1,15 @@
+#!/bin/bash -e
+
+# This script should be run inside of a container
+
+# Set up database
+echo "Creating Database"
+bundle exec hanami db prepare
+
+# Ensure assets can precompile
+echo "Compiling Assets"
+bundle exec hanami assets precompile
+
+# Run test suite
+echo "Running Test"
+bundle exec rake test

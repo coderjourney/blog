@@ -1,0 +1,14 @@
+#!/bin/bash -e
+
+# This script should be run outside of a container
+
+function finish {
+  docker-compose -f docker-compose.ci.yml stop
+  docker-compose -f docker-compose.ci.yml rm -fv
+}
+
+trap finish EXIT
+
+docker-compose -f docker-compose.ci.yml up -d test_db
+docker-compose -f docker-compose.ci.yml build ci
+docker-compose -f docker-compose.ci.yml run --rm ci

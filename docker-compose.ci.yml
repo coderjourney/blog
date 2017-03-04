@@ -1,0 +1,18 @@
+version: "2"
+
+services:
+  test_db:
+    image: postgres:9.6.1
+    environment:
+      POSTGRES_DB: blog_test
+      POSTGRES_PASSWORD: super_secure
+      POSTGRES_USER: blog_user
+
+  ci:
+    build: .
+    environment:
+      HANAMI_ENV: test
+      DATABASE_URL: postgres://blog_user:super_secure@test_db/blog_test
+    command: script/test
+    depends_on:
+      - test_db
