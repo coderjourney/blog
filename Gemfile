@@ -10,6 +10,10 @@ gem "pg"
 # Pin nokogiri to make bundle installs faster
 gem "nokogiri", "1.7.0.1"
 
+group :development, :test do
+  gem "sass"
+end
+
 group :development do
   # Code reloading
   # See: http://hanamirb.org/guides/projects/code-reloading
