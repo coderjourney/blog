@@ -1,0 +1,8 @@
+#!/bin/bash -e
+
+if [[ $HANAMI_ENV == "production" ]]; then
+  bundle exec hanami db migrate
+  bundle exec hanami assets precompile
+fi
+
+bundle exec hanami server --host=0.0.0.0 -p $PORT
