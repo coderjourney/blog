@@ -19,5 +19,6 @@ function finish {
 trap finish EXIT
 
 docker_command up -d test_db
+sleep 5
 docker_command build ci
 docker_command run --rm ci
